@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>Title</title>
+    <style>
+        .err {
+            margin: 5cm auto;
+            font-size: 20px;
+            text-align: center;
+        }
+
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+<body>
+<div class="err">
+    <%
+    HttpSession sessionHttp = request.getSession();
+    if(sessionHttp.getAttribute("error") != null) {
+    String error = sessionHttp.getAttribute("error").toString();
+    out.println(error);
+    }
+    else{
+    out.println("Введенные данные некорректны");
+
+    }
+
+    %>
+</div>
+
+
+<div class="form-btn">
+    <form method="get" action="index.jsp">
+        <input type="submit" id="btn-form" value="Вернуться к результатам">
+    </form>
+</div>
+</body>
+</html>
